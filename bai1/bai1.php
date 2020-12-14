@@ -28,30 +28,46 @@ function main()
             echo $statusValidate['message'];
 
         } else {
-            echo $deltaValidate['result'];
+            if($deltaValidate['number']==0){
+                echo $deltaValidate['message'];
+            }else if($deltaValidate['number']==1){
+                echo $deltaValidate['message'].'<br>'.$deltaValidate['x'];
+            }else if($deltaValidate['number']==2){
+                echo $deltaValidate['message'].'<br>'.$deltaValidate['x1'].'<br>'.$deltaValidate['x2'];
+            }
+//            echo $deltaValidate['result'];
         }
     }
 }
 
 function ptb($a,$b,$c)
 {
+    if ($a==0){
+        return false;
+    }
     $delta = ($b * $b) - (4 * $a * $c);
     $x = -$b /(2*$a);
     $x1 = (-$b - sqrt($delta))/2*$a;
     $x2 = (-$b+sqrt($delta))/2*$a;
     if ($delta<0){
         return [
-            'result'=>'Phuong trinh vo nghiem'
+            'number'=>0,
+            'message'=>'Phuong trinh vo nghiem'
         ];
 //        $result =  "Phuong trinh vo nghiem";
     }else if($delta==0){
         return[
-            'result'=>"Phuong trinh co nghiem kep <br> x = $x"
+            'number'=>1,
+            'x'=>$x,
+            'message'=>'Phuong trinh co nghiem kep'
         ];
 
     }else{
         return[
-            'result'=>"Phuong trinh co hai nghiem <br> x1 = $x1 <br> x2 = $x2"
+            'number'=>2,
+            'message'=>'Phuong trinh co 2 nghiem',
+            'x1'=>$x1,
+            'x2'=>$x2
         ];
 //        $result = "Phuong trinh co hai nghiem <br> x1 = $x1 <br> x2 = $x2";
     }
