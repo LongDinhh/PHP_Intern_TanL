@@ -47,20 +47,30 @@ function checkPrime($n)
 function showPrime($number)
 {
     $array = (explode(',',$number));
-    $array1 = explode('-',$array['0']);
-    $array2 = explode('-',$array['1']);
-    $a = $array1['0'];
-    $b = $array1['1'];
-    for ($i = $a; $i <= $b; $i++) {
-        if (checkPrime($i))
-            echo $i, '<br>';
+//    echo count($array);
+    for ($j=0;$j<count($array);$j++){
+        $array_1 = explode('-',$array[$j]);
+        $a_1 = $array_1['0'];
+        $a_2 = $array_1['1'];
+        for ($i = $a_1; $i <= $a_2; $i++) {
+            if (checkPrime($i))
+                echo $i, '<br>';
+        }
     }
-    $c = $array2['0'];
-    $d = $array2['1'];
-    for ($i = $c; $i <= $d; $i++) {
-        if (checkPrime($i))
-            echo $i, '<br>';
-    }
+//    $array1 = explode('-',$array['0']);
+//    $array2 = explode('-',$array['1']);
+//    $a = $array1['0'];
+//    $b = $array1['1'];
+//    for ($i = $a; $i <= $b; $i++) {
+//        if (checkPrime($i))
+//            echo $i, '<br>';
+//    }
+//    $c = $array2['0'];
+//    $d = $array2['1'];
+//    for ($i = $c; $i <= $d; $i++) {
+//        if (checkPrime($i))
+//            echo $i, '<br>';
+//    }
 }
 
 ?>
