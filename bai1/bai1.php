@@ -2,7 +2,6 @@
 
 function validate($a, $b, $c)
 {
-    $delta = ($b * $b) - (4 * $a * $c);
     if(!is_numeric($a) && !is_numeric($b) && !is_numeric($c)){
 //        $error = "Phai la so";
         return [
@@ -10,11 +9,9 @@ function validate($a, $b, $c)
             'message' => 'Phai la so'
         ];
     }
-
     return [
         'code' => 1,
-        'message' => '',
-        'delta'=> "$delta"
+        'message' => ''
     ];
 }
 
@@ -26,19 +23,19 @@ function main()
         $b = $_POST['number_b'];
         $c = $_POST['number_c'];
         $statusValidate = validate($a, $b, $c);
-        $deltaValidate = ptb($a,$b,$statusValidate['delta']);
+        $deltaValidate = ptb($a,$b,$c);
         if ($statusValidate['code'] !== 1) {
             echo $statusValidate['message'];
 
         } else {
             echo $deltaValidate['result'];
-
         }
     }
 }
 
-function ptb($a,$b,$delta)
+function ptb($a,$b,$c)
 {
+    $delta = ($b * $b) - (4 * $a * $c);
     $x = -$b /(2*$a);
     $x1 = (-$b - sqrt($delta))/2*$a;
     $x2 = (-$b+sqrt($delta))/2*$a;
