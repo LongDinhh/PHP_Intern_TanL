@@ -1,7 +1,6 @@
 <?php
     if (isset($_POST['submit'])){
         $number = $_POST['number'];
-        if ()
     }
 ?>
 <form action="" method="post">
