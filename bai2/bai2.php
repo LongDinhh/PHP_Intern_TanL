@@ -19,9 +19,11 @@ function main()
     if (isset($_POST['submit'])) {
         $number = $_POST['number'];
 //            echo $number.'<br>';
-//            $array = (explode('-',$number));
+//            $array = (explode(',',$number));
+//            $array1 = explode('-',$array['0']);
+//            $array2 = explode('-',$array['1']);
 //            echo '<br>';
-//            echo $array['0'];
+//            echo $array1['0'];
         $numberValidate = validate($number);
         $checkValidate = showPrime($number);
         if ($numberValidate['code'] !== 1) {
@@ -44,10 +46,18 @@ function checkPrime($n)
 
 function showPrime($number)
 {
-    $array = (explode('-', $number));
-    $a = $array['0'];
-    $b = $array['1'];
+    $array = (explode(',',$number));
+    $array1 = explode('-',$array['0']);
+    $array2 = explode('-',$array['1']);
+    $a = $array1['0'];
+    $b = $array1['1'];
     for ($i = $a; $i <= $b; $i++) {
+        if (checkPrime($i))
+            echo $i, '<br>';
+    }
+    $c = $array2['0'];
+    $d = $array2['1'];
+    for ($i = $c; $i <= $d; $i++) {
         if (checkPrime($i))
             echo $i, '<br>';
     }
