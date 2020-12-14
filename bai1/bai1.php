@@ -2,6 +2,7 @@
 
 function validate($a, $b, $c)
 {
+    $delta = ($b * $b) - (4 * $a * $c);
     if(!is_numeric($a) && !is_numeric($b) && !is_numeric($c)){
 //        $error = "Phai la so";
         return [
@@ -12,7 +13,8 @@ function validate($a, $b, $c)
 
     return [
         'code' => 1,
-        'message' => ''
+        'message' => '',
+        'delta'=> "$delta"
     ];
 }
 
@@ -23,9 +25,8 @@ function main()
         $a = $_POST['number_a'];
         $b = $_POST['number_b'];
         $c = $_POST['number_c'];
-        $delta = ($b * $b) - (4 * $a * $c);
         $statusValidate = validate($a, $b, $c);
-        $deltaValidate = ptb($a,$b,$delta);
+        $deltaValidate = ptb($a,$b,$statusValidate['delta']);
         if ($statusValidate['code'] !== 1) {
             echo $statusValidate['message'];
 
