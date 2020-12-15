@@ -1,12 +1,15 @@
 <?php
 function validate($number)
 {
-    $array = (explode('-', $number));
-    if ($number != $array['0'] . '-' . $array['1']) {
-        return [
-            'code' => 0,
-            'message' => 'Khong dung dinh dang'
-        ];
+    $array = (explode(',', $number));
+    for ($j = 0; $j < count($array); $j++) {
+        $array_1 = explode('-', $array[$j]);
+        if (!is_numeric($array_1['0']) || !is_numeric($array_1['1'])) {
+            return [
+                'code' => 0,
+                'message' => 'Khong dung dinh dang'
+            ];
+        }
     }
     return [
         'code' => 1,
@@ -18,19 +21,17 @@ function main()
 {
     if (isset($_POST['submit'])) {
         $number = $_POST['number'];
-//            echo $number.'<br>';
-//            $array = (explode(',',$number));
-//            $array1 = explode('-',$array['0']);
-//            $array2 = explode('-',$array['1']);
-//            echo '<br>';
-//            echo $array1['0'];
         $numberValidate = validate($number);
-        $checkValidate = showPrime($number);
+
         if ($numberValidate['code'] !== 1) {
             echo $numberValidate['message'];
             return;
         }
-        echo $checkValidate;
+        $checkValidate = showPrime($number);
+
+            echo '<pre>';
+            print_r($checkValidate);
+            echo '</pre>';
     }
 }
 
@@ -46,31 +47,24 @@ function checkPrime($n)
 
 function showPrime($number)
 {
-    $array = (explode(',',$number));
-//    echo count($array);
-    for ($j=0;$j<count($array);$j++){
-        $array_1 = explode('-',$array[$j]);
+    $array = (explode(',', $number));
+    $arr = [];
+    for ($j = 0; $j < count($array); $j++) {
+        $array_1 = explode('-', $array[$j]);
         $a_1 = $array_1['0'];
         $a_2 = $array_1['1'];
-        for ($i = $a_1; $i <= $a_2; $i++) {
-            if (checkPrime($i))
-                echo $i, '<br>';
+        if ($a_2 > $a_1) {
+            for ($i = $a_1; $i <= $a_2; $i++) {
+                if (checkPrime($i))
+                    array_push($arr, $i);
+            }
         }
+            for ($i = $a_2; $i <= $a_1; $i++) {
+                if (checkPrime($i))
+                    array_push($arr, $i);
+            }
     }
-//    $array1 = explode('-',$array['0']);
-//    $array2 = explode('-',$array['1']);
-//    $a = $array1['0'];
-//    $b = $array1['1'];
-//    for ($i = $a; $i <= $b; $i++) {
-//        if (checkPrime($i))
-//            echo $i, '<br>';
-//    }
-//    $c = $array2['0'];
-//    $d = $array2['1'];
-//    for ($i = $c; $i <= $d; $i++) {
-//        if (checkPrime($i))
-//            echo $i, '<br>';
-//    }
+    return ($arr);
 }
 
 ?>
