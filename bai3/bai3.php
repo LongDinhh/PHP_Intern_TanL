@@ -1,9 +1,15 @@
 <?php
 function validate($n){
+    if (!$n>0){
+        return [
+            'code'=>0,
+            'message'=>'Phai lon hon khong'
+        ];
+    }
     if (empty($n)){
         return [
             'code'=>0,
-            'message'=>'Khong duoc de'
+            'message'=>'Khong duoc de trong'
         ];
     }
     if (!is_numeric($n)){
@@ -23,35 +29,54 @@ function main(){
         $numberValidate = validate($n);
         if ($numberValidate['code']!==1){
             echo $numberValidate['message'];
+            return;
         }
         $createTbl = createTbl($n);
-
 //        print_r($createTbl);
+        echo '<pre>';
         var_dump($createTbl);
+        echo '</pre>';
 
     }
     if (isset($_POST['submit_2'])){
         $n = $_POST['number'];
-        echo $n;
         $numberValidate = validate($n);
         if ($numberValidate['code']!==1){
             echo $numberValidate['message'];
+            return;
         }
 
     }
 }
-function createTbl($n){
+function createTbl($n)
+{
     $arr = [];
-    $arr2= [];
+    $start = $n / 4;
+    $end = 3 * $n / 4;
+    for ($i = $start; $i < $end; $i++) {
+        if ($float_part = randFloat($i) && $int_part = randInt($i)) {
+            return $float_part + $int_part;
+        }
+    }
+//    return $arr;
+}
+function randInt($n){
+    $arr = [];
+    for ($i=0;$i<$n;$i++){
+        array_push($arr,$i);
+        $rand = array_rand($arr);
+    }
+    return $arr[$rand];
+}
+function randFloat($n){
+    $arr1 = [];
     $start = $n / 4;
     $end = 3*$n / 4;
     for ($i=$start;$i<$end;$i++){
-//        array_push($arr,$i);
-        array_push($arr,$i);
-        $rand = array_rand($arr);
-        array_push($arr2,$rand);
+        array_push($arr1,$i);
+        $rand1 = mt_rand($start,$end);
     }
-    return $arr2;
+    return $arr1[$rand1];
 }
 function sliptTbl(){
 }
