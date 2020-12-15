@@ -29,9 +29,9 @@ function main()
         }
         $checkValidate = showPrime($number);
 
-            echo '<pre>';
-            print_r($checkValidate);
-            echo '</pre>';
+        echo '<pre>';
+        print_r($checkValidate);
+        echo '</pre>';
     }
 }
 
@@ -51,18 +51,16 @@ function showPrime($number)
     $arr = [];
     for ($j = 0; $j < count($array); $j++) {
         $array_1 = explode('-', $array[$j]);
-        $a_1 = $array_1['0'];
-        $a_2 = $array_1['1'];
-        if ($a_2 > $a_1) {
-            for ($i = $a_1; $i <= $a_2; $i++) {
-                if (checkPrime($i))
-                    array_push($arr, $i);
-            }
+
+        $array_1 = array_map('intval', $array_1);
+
+        $a_1 = max($array_1);
+        $a_2 = min($array_1);
+
+        for ($i = $a_2; $i <= $a_1; $i++) {
+            if (checkPrime($i))
+                array_push($arr, $i);
         }
-            for ($i = $a_2; $i <= $a_1; $i++) {
-                if (checkPrime($i))
-                    array_push($arr, $i);
-            }
     }
     return ($arr);
 }
