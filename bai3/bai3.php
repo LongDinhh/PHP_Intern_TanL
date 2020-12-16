@@ -49,44 +49,49 @@ function main()
             echo $numberValidate['message'];
             return;
         }
-
     }
 }
 
 function createTbl($n)
 {
     $arr = [];
-    $start = $n / 4;
-    $end = 3 * $n / 4;
-    for ($i = $start; $i < $end; $i++) {
-        if ($string_part = randString($i) && $int_part = randInt($i)) {
-            return $string_part + $int_part;
+    for ($i = 0; $i < $n; $i++) {
+        if ($string_part = randString($i) && $part_int = randInt($i)) {
+            return $string_part + $part_int;
         }
     }
-//    return $arr;
+    return $arr;
 }
 
 function randInt($n)
 {
-    $arr = [];
-    for ($i = 0; $i < $n; $i++) {
-        array_push($arr, $i);
-        $rand = array_rand($arr);
+    $strings = [];
+//    $numRand = random_int(0, count($strings)-1);
+    $start = $n / 4;
+    $end = 3 * $n / 4;
+    $check1 = '';
+    for($i=$start;$i<$end;$i++){
+        $numRand = random_int($start, count($strings)-1);
+        $check1 .= $strings[$numRand];
     }
-    return $arr[$rand];
+    return $check1;
 }
 
 function randString($n)
 {
-    $arr1 = [];
-    for ($i = 0; $i < $n; $i++) {
-        array_push($arr1, $i);
-        $array_1 = array_map('strval', $arr1);
-        $rand = array_rand($array_1);
+    $strings = [];
+//    $max = count($strings);
+//    $numRand = mt_rand(0, count($strings));
+    $start = $n / 4;
+    $end = 3 * $n / 4;
+    $check = '';
+    for($i=$start;$i<$end;$i++){
+        $numRand = mt_rand($start, count($strings)-1);
+        $check .= $strings[$numRand];
     }
-    return $array_1[$rand];
-}
+    return $check;
 
+}
 function sliptTbl()
 {
 }
