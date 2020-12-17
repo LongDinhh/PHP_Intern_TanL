@@ -125,18 +125,18 @@ function main()
         print_r(sapxepTangorder());
         echo '</pre>';
     }
-//    if (isset($_POST['sapxepTientang'])) {
-//        echo "Tang theo tong tien.<br>";
-//        echo '<pre>';
-//        print_r(tongtienTang());
-//        echo '</pre>';
-//    }
-//    if (isset($_POST['sapxepTiengiam'])) {
-//        echo "Giam theo tong tien.<br>";
-//        echo '<pre>';
-//        print_r(tongtienGiam());
-//        echo '</pre>';
-//    }
+    if (isset($_POST['sapxepTientang'])) {
+        echo "Tang theo tong tien.<br>";
+        echo '<pre>';
+        print_r(tongtienTang());
+        echo '</pre>';
+    }
+    if (isset($_POST['sapxepTiengiam'])) {
+        echo "Giam theo tong tien.<br>";
+        echo '<pre>';
+        print_r(tongtienGiam());
+        echo '</pre>';
+    }
 }
 
 function sapxepGiamprice()
@@ -150,6 +150,21 @@ function sapxepGiamprice()
                 $tg = $b[$i]['price'];
                 $b[$i]['price'] = $b[$j]['price'];
                 $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
+                $tg = $b[$i]['order'];
+                $b[$i]['order'] = $b[$j]['order'];
+                $b[$j]['order'] = $tg;
+                $tg = $b[$i]['sum'];
+                $b[$i]['sum'] = $b[$j]['sum'];
+                $b[$j]['sum'] = $tg;
             }
         }
     }
@@ -166,6 +181,21 @@ function sapxepTangprice()
                 $tg = $b[$i]['price'];
                 $b[$i]['price'] = $b[$j]['price'];
                 $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
+                $tg = $b[$i]['order'];
+                $b[$i]['order'] = $b[$j]['order'];
+                $b[$j]['order'] = $tg;
+                $tg = $b[$i]['sum'];
+                $b[$i]['sum'] = $b[$j]['sum'];
+                $b[$j]['sum'] = $tg;
             }
         }
     }
@@ -178,9 +208,24 @@ function sapxepGiamorder()
     for ($i = 0; $i < $lenght1 - 1; $i++) {
         for ($j = $i + 1; $j < $lenght1; $j++) {
             if ($b[$i]['order'] < $b[$j]['order']) {
+                $tg = $b[$i]['price'];
+                $b[$i]['price'] = $b[$j]['price'];
+                $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
                 $tg = $b[$i]['order'];
                 $b[$i]['order'] = $b[$j]['order'];
                 $b[$j]['order'] = $tg;
+                $tg = $b[$i]['sum'];
+                $b[$i]['sum'] = $b[$j]['sum'];
+                $b[$j]['sum'] = $tg;
             }
         }
     }
@@ -193,35 +238,80 @@ function sapxepTangorder()
     for ($i = 0; $i < $lenght1 - 1; $i++) {
         for ($j = $i + 1; $j < $lenght1; $j++) {
             if ($b[$i]['order'] > $b[$j]['order']) {
+                $tg = $b[$i]['price'];
+                $b[$i]['price'] = $b[$j]['price'];
+                $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
                 $tg = $b[$i]['order'];
                 $b[$i]['order'] = $b[$j]['order'];
                 $b[$j]['order'] = $tg;
+                $tg = $b[$i]['sum'];
+                $b[$i]['sum'] = $b[$j]['sum'];
+                $b[$j]['sum'] = $tg;
             }
         }
     }
     return $b;
 }
-//function tongtienGiam(){
-//    $b = product();
-//    $lenght1 = count($b);
-//    for ($i=0;$i<$lenght1-1;$i++){
-//        for ($j=$i+1;$j<$lenght1;$j++){
-//            if ( $b[$i]['tongtien'] <  $b[$j]['tongtien']){
-//                $tg = $b[$i]['tongtien'];
-//                $b[$i]['tongtien'] = $b[$j]['tongtien'];
-//                $b[$j]['tongtien'] = $tg;
-//            }
-//        }
-//    }
-//    return $b;
-//
-//}
 function tongtienTang(){
     $b = product();
     $lenght1 = count($b);
     for ($i=0;$i<$lenght1-1;$i++){
         for ($j=$i+1;$j<$lenght1;$j++){
+            if ( $b[$i]['sum'] >  $b[$j]['sum']){
+                $tg = $b[$i]['price'];
+                $b[$i]['price'] = $b[$j]['price'];
+                $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
+                $tg = $b[$i]['order'];
+                $b[$i]['order'] = $b[$j]['order'];
+                $b[$j]['order'] = $tg;
+                $tg = $b[$i]['sum'];
+                $b[$i]['sum'] = $b[$j]['sum'];
+                $b[$j]['sum'] = $tg;
+            }
+        }
+    }
+    return $b;
+
+}
+function tongtienGiam(){
+    $b = product();
+    $lenght1 = count($b);
+    for ($i=0;$i<$lenght1-1;$i++){
+        for ($j=$i+1;$j<$lenght1;$j++){
             if ( $b[$i]['sum'] <  $b[$j]['sum']){
+                $tg = $b[$i]['price'];
+                $b[$i]['price'] = $b[$j]['price'];
+                $b[$j]['price'] = $tg;
+                $tg = $b[$i]['id'];
+                $b[$i]['id'] = $b[$j]['id'];
+                $b[$j]['id'] = $tg;
+                $tg = $b[$i]['name'];
+                $b[$i]['name'] = $b[$j]['name'];
+                $b[$j]['name'] = $tg;
+                $tg = $b[$i]['price'];
+                $b[$i]['quantity'] = $b[$j]['price'];
+                $b[$j]['quantity'] = $tg;
+                $tg = $b[$i]['order'];
+                $b[$i]['order'] = $b[$j]['order'];
+                $b[$j]['order'] = $tg;
                 $tg = $b[$i]['sum'];
                 $b[$i]['sum'] = $b[$j]['sum'];
                 $b[$j]['sum'] = $tg;
@@ -233,12 +323,7 @@ function tongtienTang(){
 }
 ?>
 <?php
-//main();
-
-echo '<pre>';
-print_r(tongtienTang());
-echo '</pre>';
-
+main();
 ?>
 <form action="" method="post">
     <input type="submit" name="sapxepTang" value="Sắp xếp price, order tăng">
