@@ -20,7 +20,7 @@ function product(){
             'order' => 2,
             'sum' => ''),
         array('id' => 4,
-            'name' => 'Giay',
+            'name' => 'Giày',
             'price' => 20000,
             'quantity' => 20,
             'order' => 10,
@@ -153,8 +153,15 @@ function sapxepGiamtongtien(){
     return $product;
 }
 ?>
+<head>
+    <style>
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
 <form action="" method="post">
-    <table cellspacing="0" cellpadding="8">
+    <table border="" cellspacing="0" cellpadding="8">
         <tr>
             <th>Product_id</th>
             <th>Product_name</th>
