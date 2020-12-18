@@ -43,30 +43,6 @@ function main(){
         $product = product();
         return $product;
     }
-    if (isset($_POST['submit_1'])) {
-        $product = sapxepGiamprice();
-        return $product;
-    }
-    if (isset($_POST['submit_2'])) {
-        $product = sapxepTangprice();
-        return $product;
-    }
-//    if (isset($_POST['submit_3'])) {
-//        $product = sapxepGiamorder();
-//        return $product;
-//    }
-//    if (isset($_POST['submit_4'])) {
-//        $product = sapxepTangorder();
-//        return $product;
-//    }
-//    if (isset($_POST['submit_5'])) {
-//        $product = sapxepTangtongtien();
-//        return $product;
-//    }
-//    if (isset($_POST['submit_6'])) {
-//        $product = sapxepGiamtongtien();
-//        return $product;
-//    }
     $a = validate();
     if (isset($_POST['saveOrder'])) {
         if ($a['code']!==1){
@@ -121,90 +97,6 @@ function saveOrder(){
     }
     return $product;
 }
-function sapxepGiamprice(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['price'] < $product[$j]['price']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepTangprice(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['price'] > $product[$j]['price']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepGiamorder(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['order'] < $product[$j]['order']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepTangorder(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['order'] > $product[$j]['order']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepTangtongtien(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['sum'] > $product[$j]['sum']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepGiamtongtien(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['sum'] < $product[$j]['sum']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
 
 ?>
 <head>
@@ -247,12 +139,6 @@ function sapxepGiamtongtien(){
         ?>
     </table>
     <input type="submit" name="submit" value="Ban đầu">
-    <input type="submit" name="submit_1" value="sapxepGiamprice">
-    <input type="submit" name="submit_2" value="sapxepTangprice">
-<!--    <input type="submit" name="submit_3" value="sapxepGiamorder">-->
-<!--    <input type="submit" name="submit_4" value="sapxepTangorder">-->
-<!--    <input type="submit" name="submit_5" value="sapxepTangtongtien">-->
-<!--    <input type="submit" name="submit_6" value="sapxepGiamtongtien">-->
     <br>
     <input type="submit" name="saveOrder" value="Lưu Order">
 
