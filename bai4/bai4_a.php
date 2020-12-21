@@ -33,7 +33,8 @@ function product(){
             'sum' => '')
 
     );
-    for ($i = 0; $i < count($product); $i++) {
+    $lenght = count($product);
+    for ($i = 0; $i < $lenght; $i++) {
         $product[$i]['sum'] = $product[$i]['price'] * $product[$i]['order'];
     }
     return $product;
@@ -172,7 +173,8 @@ function sapxepGiamtongtien(){
         </tr>
         <?php
         $product = main();
-        for ($i = 0; $i < count($product); $i++) {
+        $lenght = count($product);
+        for ($i = 0; $i < $lenght; $i++) {
             echo '<tr>';
             echo '<td>';
             print_r($product[$i]['id']);
