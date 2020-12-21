@@ -60,25 +60,25 @@ function main()
 function createTbl($n)
 {
     $arr = [];
+    $copMin = ceil($n / 4);
+    $copMax = floor(3 * $n / 4);
+    $lenght = mt_rand($copMin, $copMax);
     for ($j = 0; $j < $n; $j++) {
         $number = mt_rand(0,1);
         if ($number ===0  ) {
-            array_push($arr,randInt($n) );
+            array_push($arr,randInt($lenght) );
         }else{
-            array_push($arr,randString($n));
+            array_push($arr,randString($lenght));
         }
 
     }
     return $arr;
 
 }
-function randString($n)
+function randString($lenght)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $randomString = '';
-    $copMin = ceil($n / 4);
-    $copMax = floor(3 * $n / 4);
-    $lenght = mt_rand($copMin, $copMax);
     for ($i=0;$i<$lenght;$i++){
         $randomString .= $characters[mt_rand(0,strlen($characters)-1)];
     }
@@ -93,13 +93,10 @@ function randString($n)
 //
 //    return mt_rand($min,$max);
 //}
-function randInt($n)
+function randInt($lenght)
 {
     $characters = '0123456789';
     $randomInt = '';
-    $copMin = ceil($n / 4);
-    $copMax = floor(3 * $n / 4);
-    $lenght = mt_rand($copMin, $copMax);
     for ($i=0;$i<$lenght;$i++){
         $randomInt .= $characters[mt_rand(0,strlen($characters)-1)];
     }
