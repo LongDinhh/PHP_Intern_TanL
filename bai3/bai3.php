@@ -1,4 +1,5 @@
 <?php
+session_start();
 function validate($n)
 {
     if (!$n > 0) {
@@ -40,25 +41,18 @@ function main()
 //                echo($createTbl);
         var_dump($createTbl);
         echo '</pre>';
+        $_SESSION['arr'] = $createTbl;
 
     }
     if (isset($_POST['submit_2'])) {
-        $n = $_POST['number'];
-        $numberValidate = validate($n);
-        if ($numberValidate['code'] !== 1) {
-            echo $numberValidate['message'];
-            return;
-        }
-        $sliptIntTbl = sliptInttTbl($n);
+        $a = sliptTbl($_SESSION['arr']);
         echo '<pre>';
 //                echo($createTbl);
-        var_dump($sliptIntTbl );
+        var_dump($a[0]);
         echo '</pre>';
-        $slipteStringTbl = sliptStringTbl($n);
-
         echo '<pre>';
 //                echo($createTbl);
-        var_dump($slipteStringTbl);
+        var_dump($a[1]);
         echo '</pre>';
     }
 }
@@ -67,33 +61,29 @@ function createTbl($n)
 {
     $arr = [];
     for ($j = 0; $j < $n; $j++) {
-        if ($int_part = randInt($n)) {
-            array_push($arr, $int_part);
+        $number = mt_rand(0,1);
+        if ($number ===0  ) {
+            array_push($arr,randInt($n) );
+        }else{
+            array_push($arr,randString($n));
         }
-        if ($int_part = randString($n)) {
-            array_push($arr, $int_part);
-        }
+
     }
     return $arr;
 
 }
-function checkLenght($n){
+function randString($n)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
     $copMin = ceil($n / 4);
     $copMax = floor(3 * $n / 4);
     $lenght = mt_rand($copMin, $copMax);
-    return [
-            'lenght'=>$lenght
-    ];
-
-}
-function randString($n)
-{
-    $a = checkLenght($n);
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $randomString = '';
-    $index = mt_rand($a['lenght'], strlen($characters) - 1);
-    $randomString .= $characters[$index];
+    for ($i=0;$i<$lenght;$i++){
+        $randomString .= $characters[mt_rand(0,strlen($characters)-1)];
+    }
     return $randomString;
+
 }
 
 //function randNumber(int $n): int{
@@ -105,35 +95,33 @@ function randString($n)
 //}
 function randInt($n)
 {
-    $a = checkLenght($n);
-    $min = pow(10, $a['lenght'] - 1);
-    $max = pow(10, $a['lenght']) - 1;
-    $max = min($max, PHP_INT_MAX);
-    return mt_rand($min, $max);
+    $characters = '0123456789';
+    $randomInt = '';
+    $copMin = ceil($n / 4);
+    $copMax = floor(3 * $n / 4);
+    $lenght = mt_rand($copMin, $copMax);
+    for ($i=0;$i<$lenght;$i++){
+        $randomInt .= $characters[mt_rand(0,strlen($characters)-1)];
+    }
+    $randomInt = (int)$randomInt;
+    return $randomInt;
 }
 
-function sliptInttTbl($n)
-{
-    $arr = [];
-    for ($j = 0; $j < $n; $j++) {
-        if ($int_part = randInt($n)) {
-            array_push($arr, $int_part);
+function sliptTbl($arr){
+    $arr_int = [];
+    $arr_string = [];
+    $lenght = count($arr);
+    for ($i=0;$i<$lenght;$i++){
+        if (!is_numeric($arr[$i])){
+            array_push($arr_int,$arr[$i]);
+        }
+        else{
+            array_push($arr_string,$arr[$i]);
         }
     }
-    return $arr;
+    $arr1 = [$arr_int,$arr_string];
+    return $arr1;
 }
-
-function sliptStringTbl($n)
-{
-    $arr = [];
-    for ($j = 0; $j < $n; $j++) {
-        if ($int_part = randString($n)) {
-            array_push($arr, $int_part);
-        }
-    }
-    return $arr;
-}
-
 ?>
 <form action="" method="post">
     <table>
