@@ -70,6 +70,18 @@ function main(){
     }
 }
 
+function sapxep(){
+    $product = product();
+    $lenght = count($product);
+    for ($i = 0; $i < $lenght - 1; $i++) {
+        for ($j = $i + 1; $j < $lenght; $j++) {
+                $tg = $product[$i];
+                $product[$i] = $product[$j];
+                $product[$j] = $tg;
+            }
+    }
+    return $product;
+}
 function sapxepGiamprice(){
     $product = product();
     $lenght = count($product);
