@@ -33,30 +33,15 @@ function product(){
             'order' => '0',
             'sum' => ''),
     );
-//    for ($i = 0; $i < count($product); $i++) {
+//    $lenght = count($product);
+//    for ($i = 0; $i < $lenght; $i++) {
 //        $product[$i]['sum'] = $product[$i]['price'] * $product[$i]['order'];
 //    }
     return $product;
 }
-function main(){
-    if (isset($_POST['submit'])) {
-        $product = product();
-        return $product;
-    }
-    $a = validate();
-    if (isset($_POST['saveOrder'])) {
-        if ($a['code']!==1){
-            echo $a['message'];
-            return;
-        }
-        $product = saveOrder();
-        return $product;
-    }
-}
-function validate(){
+function validate($numberOrder ){
     $product = product();
     $lenght = count($product);
-    $numberOrder = $_POST['numberOrder'];
     foreach ($numberOrder as $item) {
         if ($item<0){
             return [
@@ -78,10 +63,26 @@ function validate(){
         ];
     }
 }
-function saveOrder(){
+function main(){
+    if (isset($_POST['submit'])) {
+        $product = product();
+        return $product;
+    }
+    if (isset($_POST['saveOrder'])) {
+        $numberOrder = $_POST['numberOrder'];
+        $a = validate($numberOrder );
+        if ($a['code']!==1){
+            echo $a['message'];
+            return;
+        }
+        $product = saveOrder($numberOrder );
+        return $product;
+    }
+}
+
+function saveOrder($numberOrder ){
     $product = product();
     $lenght = count($product);
-    $numberOrder = $_POST['numberOrder'];
     for ($i=0;$i<$lenght;$i++){
         $product[$i]['order'] = $numberOrder[$i];
 
@@ -117,7 +118,8 @@ function saveOrder(){
         </tr>
         <?php
         $product = main();
-        for ($i = 0; $i < count($product); $i++) {
+        $lenght = count($product);
+        for ($i = 0; $i < $lenght; $i++) {
             echo '<tr>';
             echo '<td>';
             print_r($product[$i]['id']);
