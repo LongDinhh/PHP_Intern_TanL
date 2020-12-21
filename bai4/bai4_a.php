@@ -69,6 +69,7 @@ function main(){
         return $product;
     }
 }
+
 function sapxepGiamprice(){
     $product = product();
     $lenght = count($product);
@@ -172,31 +173,19 @@ function sapxepGiamtongtien(){
             <th>Product_sum</th>
         </tr>
         <?php
-        $product = main();
-        $lenght = count($product);
-        for ($i = 0; $i < $lenght; $i++) {
-            echo '<tr>';
-            echo '<td>';
-            print_r($product[$i]['id']);
-            echo '</td>';
-            echo '<td>';
-            print_r($product[$i]['name']);
-            echo '</td>';
-            echo '<td>';
-            print_r($product[$i]['price']);
-            echo '</td>';
-            echo '<td>';
-            print_r($product[$i]['quantity']);
-            echo '</td>';
-            echo '<td>';
-            print_r($product[$i]['order']);
-            echo '</td>';
-            echo '<td>';
-            print_r($product[$i]['sum']);
-            echo '</td>';
-            echo '</tr>';
-        }
-        ?>
+        $products = main();
+        if(!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <td scope="row"><?php echo($product['id']) ?></td>
+                    <td><?php echo($product['name']) ?></td>
+                    <td><?php echo($product['price']) ?></td>
+                    <td><?php echo($product['quantity']) ?></td>
+                    <td><?php echo($product['order']) ?></td>
+                    <td><?php echo($product['sum']) ?></td>
+                </tr>
+            <?php endforeach ?>
+        <?php endif ?>
     </table>
     <input type="submit" name="submit" value="Ban đầu">
     <input type="submit" name="submit_1" value="sapxepGiamprice">
