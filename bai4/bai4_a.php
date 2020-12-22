@@ -1,175 +1,124 @@
 <?php
-function product(){
-    $product = array(
-        array('id' => 1,
-            'name' => 'Quần',
-            'price' => 12000,
-            'quantity' => 10,
-            'order' => 2,
-            'sum' => ''),
-        array('id' => 2,
-            'name' => 'Áo',
-            'price' => 10000,
-            'quantity' => 10,
-            'order' => 8,
-            'sum' => ''),
-        array('id' => 3,
-            'name' => 'Tất',
-            'price' => 11000,
-            'quantity' => 10,
-            'order' => 2,
-            'sum' => ''),
-        array('id' => 4,
-            'name' => 'Giày',
-            'price' => 20000,
-            'quantity' => 20,
-            'order' => 10,
-            'sum' => ''),
-        array('id' => 5,
-            'name' => 'Dép',
-            'price' => 8000,
-            'quantity' => 10,
-            'order' => 5,
-            'sum' => '')
+function product()
+{
+    $product =
+        [
+            [
+                'id' => 1,
+                'name' => 'Quần',
+                'price' => 12000,
+                'quantity' => 10,
+                'order' => 2,
+                'sum' => ''
+            ],
+            [
+                'id' => 2,
+                'name' => 'Áo',
+                'price' => 10000,
+                'quantity' => 10,
+                'order' => 8,
+                'sum' => ''
+            ],
+            [
+                'id' => 3,
+                'name' => 'Tất',
+                'price' => 11000,
+                'quantity' => 10,
+                'order' => 2,
+                'sum' => ''
+            ],
+            [
+                'id' => 4,
+                'name' => 'Giày',
+                'price' => 20000,
+                'quantity' => 20,
+                'order' => 10,
+                'sum' => ''
+            ],
+            [
+                'id' => 5,
+                'name' => 'Dép',
+                'price' => 8000,
+                'quantity' => 10,
+                'order' => 5,
+                'sum' => ''
+            ]
+        ];
 
-    );
     $lenght = count($product);
     for ($i = 0; $i < $lenght; $i++) {
         $product[$i]['sum'] = $product[$i]['price'] * $product[$i]['order'];
     }
     return $product;
 }
-function main(){
+
+function main()
+{
+    $product = product();
+    $lenght = count($product);
     if (isset($_POST['submit'])) {
-        $product = product();
         return $product;
     }
-    if (isset($_POST['submit_1'])) {
-        $product = sapxepGiamprice();
+    if (isset($_POST['reductionPrice'])) {
+        $product = sapxepgiam($product, $lenght, 'price');
         return $product;
     }
-    if (isset($_POST['submit_2'])) {
-        $product = sapxepTangprice();
+    if (isset($_POST['increasePrice'])) {
+        $product = sapxeptang($product, $lenght, 'price');
         return $product;
     }
-    if (isset($_POST['submit_3'])) {
-        $product = sapxepGiamorder();
+    if (isset($_POST['reductionOrder'])) {
+        $product = sapxepgiam($product, $lenght, 'order');
         return $product;
     }
-    if (isset($_POST['submit_4'])) {
-        $product = sapxepTangorder();
+    if (isset($_POST['increaseOrder'])) {
+        $product = sapxeptang($product, $lenght, 'order');
         return $product;
     }
-    if (isset($_POST['submit_5'])) {
-        $product = sapxepTangtongtien();
+    if (isset($_POST['increaseSum'])) {
+        $product = sapxeptang($product, $lenght, 'sum');
         return $product;
     }
-    if (isset($_POST['submit_6'])) {
-        $product = sapxepGiamtongtien();
+    if (isset($_POST['reductionSum'])) {
+        $product = sapxepgiam($product, $lenght, 'sum');
         return $product;
     }
 }
 
-function sapxep(){
-    $product = product();
-    $lenght = count($product);
+function sapxepgiam($product, $lenght, $column)
+{
     for ($i = 0; $i < $lenght - 1; $i++) {
         for ($j = $i + 1; $j < $lenght; $j++) {
+            if ($product[$i][$column] < $product[$j][$column]) {
                 $tg = $product[$i];
                 $product[$i] = $product[$j];
                 $product[$j] = $tg;
             }
-    }
-    return $product;
-}
-function sapxepGiamprice(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['price'] < $product[$j]['price']){
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
+
         }
     }
     return $product;
 }
-function sapxepTangprice(){
-    $product = product();
-    $lenght = count($product);
+
+function sapxeptang($product, $lenght, $column)
+{
     for ($i = 0; $i < $lenght - 1; $i++) {
         for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['price'] > $product[$j]['price']) {
+            if ($product[$i][$column] > $product[$j][$column]) {
                 $tg = $product[$i];
                 $product[$i] = $product[$j];
                 $product[$j] = $tg;
             }
+
         }
     }
     return $product;
 }
-function sapxepGiamorder(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['order'] < $product[$j]['order']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepTangorder(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['order'] > $product[$j]['order']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepTangtongtien(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['sum'] > $product[$j]['sum']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
-function sapxepGiamtongtien(){
-    $product = product();
-    $lenght = count($product);
-    for ($i = 0; $i < $lenght - 1; $i++) {
-        for ($j = $i + 1; $j < $lenght; $j++) {
-            if ($product[$i]['sum'] < $product[$j]['sum']) {
-                $tg = $product[$i];
-                $product[$i] = $product[$j];
-                $product[$j] = $tg;
-            }
-        }
-    }
-    return $product;
-}
+
 ?>
 <head>
     <style>
-        td{
+        td {
             text-align: center;
         }
     </style>
@@ -186,7 +135,7 @@ function sapxepGiamtongtien(){
         </tr>
         <?php
         $products = main();
-        if(!empty($products)): ?>
+        if (!empty($products)): ?>
             <?php foreach ($products as $product): ?>
                 <tr>
                     <td scope="row"><?php echo($product['id']) ?></td>
@@ -200,10 +149,10 @@ function sapxepGiamtongtien(){
         <?php endif ?>
     </table>
     <input type="submit" name="submit" value="Ban đầu">
-    <input type="submit" name="submit_1" value="sapxepGiamprice">
-    <input type="submit" name="submit_2" value="sapxepTangprice">
-    <input type="submit" name="submit_3" value="sapxepGiamorder">
-    <input type="submit" name="submit_4" value="sapxepTangorder">
-    <input type="submit" name="submit_5" value="sapxepTangtongtien">
-    <input type="submit" name="submit_6" value="sapxepGiamtongtien">
+    <input type="submit" name="reductionPrice" value="reductionPrice">
+    <input type="submit" name="increasePrice" value="increasePrice">
+    <input type="submit" name="reductionOrder" value="reductionOrder">
+    <input type="submit" name="increaseOrder" value="increaseOrder">
+    <input type="submit" name="increaseSum" value="increaseSum">
+    <input type="submit" name="reductionSum" value="reductionSum">
 </form>
