@@ -43,45 +43,45 @@ function product()
 
     return $product;
 }
-//function validate($product,$lenght,$numberOrder){
-//    for ($i=0;$i<$lenght;$i++){
-//        if ($numberOrder[$i]<0){
-//            return [
-//                'code'=>0,
-//                'message'=>'Phai lon hon khong'
-//            ];
-//        }
-//        if ($numberOrder[$i] > $product[$i]['quantity']){
-//            return [
-//                'code'=>0,
-//                'message'=>'Phai nho hon quantity'
-//            ];
-//        }
-//    }
-//    return [
-//        'code'=>1,
-//        'message'=>''
-//    ];
-//}
+function validate($product,$lenght,$numberOrder){
+    for ($i=0;$i<$lenght;$i++){
+        if(!isset($numberOrder[$product[$i]['id']])){
+            return [
+                'code'=>0,
+                'message'=>'Không tồn tại'
+            ];
+        }
+        if ($numberOrder[$product[$i]['id']]<0){
+            return [
+                'code'=>0,
+                'message'=>'Phai lon hon khong'
+            ];
+        }
+        if ($numberOrder[$product[$i]['id']] > $product[$i]['quantity']){
+            return [
+                'code'=>0,
+                'message'=>'Phai nho hon quantity'
+            ];
+        }
+    }
+    return [
+        'code'=>1,
+        'message'=>''
+    ];
+}
 function main(){
     $product = product();
     $lenght = count($product);
     if (isset($_POST['submit'])) {
         return $product;
     }
-    if (isset($_POST['saveOrder'])) {
-        $numberOrder = $_POST['numberOrder'];
-        $product  = saveOrder($product,$lenght,$numberOrder);
-        return $product;
-
-    }
     if (isset($_POST['clickOrder'])) {
         $numberOrder = $_POST['numberOrder'];
-//        $a = validate($product,$lenght,$numberOrder);
-//       if ($a['code']!==1){
-//           echo $a['message'];
-//            return $product;
-//       }
+        $a = validate($product,$lenght,$numberOrder);
+       if ($a['code']!==1){
+           echo $a['message'];
+            return $product;
+       }
         $product  = clickOrder($product,$lenght,$numberOrder);
         return $product;
     }
@@ -90,7 +90,9 @@ function main(){
 
 function saveOrder($product,$lenght,$numberOrder){
     for ($i=0;$i<$lenght;$i++){
-        $product[$i]['order'] = $numberOrder[$product[$i]['id']];
+        if (isset($numberOrder[$product[$i]['id']])){
+            $product[$i]['order'] = $numberOrder[$product[$i]['id']];
+        }
     }
     return $product;
 }
@@ -149,7 +151,7 @@ function clickOrder($product,$lenght,$numberOrder){
     </table>
     <input type="submit" name="submit" value="Ban đầu">
     <br>
-    <input type="submit" name="saveOrder" value="Lưu Order">
+<!--    <input type="submit" name="saveOrder" value="Lưu Order">-->
     <input type="submit" name="clickOrder" value="Sắp xếp Order">
 
 </form>
