@@ -75,24 +75,22 @@ function main(){
         return $product;
 
     }
-//    if (isset($_POST['clickOrder'])) {
-//        $numberOrder = $_POST['numberOrder'];
-////        $a = validate($product,$lenght,$numberOrder);
-////        if ($a['code']!==1){
-////            echo $a['message'];
-////            return $product;
-////        }
-//        $product  = clickOrder($product,$lenght,$numberOrder);
-//        return $product;
-//    }
+    if (isset($_POST['clickOrder'])) {
+        $numberOrder = $_POST['numberOrder'];
+//        $a = validate($product,$lenght,$numberOrder);
+//       if ($a['code']!==1){
+//           echo $a['message'];
+//            return $product;
+//       }
+        $product  = clickOrder($product,$lenght,$numberOrder);
+        return $product;
+    }
 
 }
 
 function saveOrder($product,$lenght,$numberOrder){
     for ($i=0;$i<$lenght;$i++){
-        if ($numberOrder[$i].$product[$i]['id'] == $product[$i]['id']){
-            $product[$i]['order'] = $numberOrder[$i];
-        }
+        $product[$i]['order'] = $numberOrder[$i];
     }
     return $product;
 }
@@ -143,7 +141,7 @@ function clickOrder($product,$lenght,$numberOrder){
                     <td><?php echo($product['price']) ?></td>
                     <td><?php echo($product['quantity']) ?></td>
                     <td>
-                        <input type="number" name="numberOrder[].$product['id']" value="<?php echo ($product['order'])?>">
+                        <input type="number" name="<?php echo 'numberOrder[]'.$product['id'] ?>" value="<?php echo ($product['order'])?>">
                     </td>
                 </tr>
             <?php endforeach ?>
