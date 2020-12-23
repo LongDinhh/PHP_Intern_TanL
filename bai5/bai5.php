@@ -90,7 +90,7 @@ function main(){
 
 function saveOrder($product,$lenght,$numberOrder){
     for ($i=0;$i<$lenght;$i++){
-        $product[$i]['order'] = $numberOrder[$i];
+        $product[$i]['order'] = $numberOrder[$product[$i]['id']];
     }
     return $product;
 }
@@ -141,7 +141,7 @@ function clickOrder($product,$lenght,$numberOrder){
                     <td><?php echo($product['price']) ?></td>
                     <td><?php echo($product['quantity']) ?></td>
                     <td>
-                        <input type="number" name="<?php echo 'numberOrder[]'.$product['id'] ?>" value="<?php echo ($product['order'])?>">
+                        <input type="number" name="<?php echo 'numberOrder['.$product['id'].']' ?>" value="<?php echo ($product['order'])?>">
                     </td>
                 </tr>
             <?php endforeach ?>
