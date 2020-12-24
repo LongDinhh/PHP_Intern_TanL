@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a90b68-1d50-45d2-9a8d-af94e2603766" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai1/bai1-data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai5/bai5.php" beforeDir="false" afterPath="$PROJECT_DIR$/bai5/bai5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai1/bai1.php" beforeDir="false" afterPath="$PROJECT_DIR$/bai1/bai1.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,34 +16,36 @@
     <session id="-548751793">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="php" value="50" />
+          <entry key="php" value="54" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="50" />
+          <entry key="PHP" value="54" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="5431" />
+          <entry key="php" value="6487" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="5431" />
+          <entry key="PHP" value="6487" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -57,10 +58,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bai5/bai5.php">
+        <entry file="file://$PROJECT_DIR$/bai1/bai1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1925">
-              <caret line="153" column="40" selection-start-line="153" selection-end-line="154" />
+            <state relative-caret-position="459">
+              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bai1/bai1-data.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -76,6 +86,8 @@
         <option value="$PROJECT_DIR$/bai3/bai3.php" />
         <option value="$PROJECT_DIR$/bai4/bai4_a.php" />
         <option value="$PROJECT_DIR$/bai5/bai5.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1-data.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1.php" />
       </list>
     </option>
   </component>
@@ -101,6 +113,11 @@
             <path>
               <item name="PHP_Intern_TanL" type="b2602c69:ProjectViewProjectNode" />
               <item name="PHP_Intern_TanL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PHP_Intern_TanL" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PHP_Intern_TanL" type="462c0819:PsiDirectoryNode" />
+              <item name="bai1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -141,18 +158,20 @@
       <workItem from="1608538305171" duration="8897000" />
       <workItem from="1608600665234" duration="26016000" />
       <workItem from="1608686824919" duration="9824000" />
+      <workItem from="1608732995723" duration="610000" />
+      <workItem from="1608774671878" duration="2777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52464000" />
+    <option name="totallyTimeSpent" value="58008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14220877" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14674735" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -179,24 +198,47 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/bai1/bai1.php</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bai4/bai4.php" />
     <entry file="file://$PROJECT_DIR$/bai4/bai4_b.php" />
-    <entry file="file://$PROJECT_DIR$/bai3/bai3.php">
+    <entry file="file://$PROJECT_DIR$/bai3/bai3.php" />
+    <entry file="file://$PROJECT_DIR$/bai4/bai4_a.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai5/bai5.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="71" column="9" lean-forward="true" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
+        <state relative-caret-position="27">
+          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
+          <folding>
+            <element signature="n#validate#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bai4/bai4_a.php" />
-    <entry file="file://$PROJECT_DIR$/bai5/bai5.php">
+    <entry file="file://$PROJECT_DIR$/bai1/bai1-data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1925">
-          <caret line="153" column="40" selection-start-line="153" selection-end-line="154" />
+        <state relative-caret-position="405">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai1/bai1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
         </state>
       </provider>
     </entry>
