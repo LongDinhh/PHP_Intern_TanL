@@ -1,139 +1,228 @@
 <?php
+$listMemberFullTime = array(
+    array(
+        'code' => '001',
+        'full_name' => 'Nguyen Van A',
+        'age' => 25,
+        'gender' => 0,
+        'marital_status' => 0,
+        'total_work_time' => 0,
+        'salary' => 15000000,
+        'workdays' => 0,
+        'start_work_time' => '08:00:00',
+        'work_hour' => 8,
+        'has_lunch_break' => 1
+    ),
+    array(
+        'code' => '002',
+        'full_name' => 'Nguyen Thi B',
+        'age' => 30,
+        'gender' => 1,
+        'marital_status' => 1,
+        'total_work_time' => 0,
+        'salary' => 10000000,
+        'workdays' => 0,
+        'start_work_time' => '08:30:00',
+        'work_hour' => 8,
+        'has_lunch_break' => 1
+    ),
+    array(
+        'code' => '003',
+        'full_name' => 'Nguyen Van C',
+        'age' => 28,
+        'gender' => 0,
+        'marital_status' => 1,
+        'total_work_time' => 0,
+        'salary' => 20000000,
+        'workdays' => 0,
+        'start_work_time' => '09:00:00',
+        'work_hour' => 8,
+        'has_lunch_break' => 1
+    )
+);
 
-function validate($a, $b, $c)
-{
-    if (!is_numeric($a) || $a === 0 || empty($a)) {
-        return [
-            'code' => 0,
-            'message' => 'a phai la so khac khong va khong duoc trong'
-        ];
-    }
-    if (!is_numeric($b) || empty($b)) {
-        return [
-            'code' => 0,
-            'message' => 'b phai la so va khong duoc de trong'
-        ];
-    }
-    if (!is_numeric($c) || empty($c)) {
-        return [
-            'code' => 0,
-            'message' => 'c phai la so va khong duoc de trong'
-        ];
-    }
-    return [
-        'code' => 1,
-        'message' => ''
-    ];
-}
+$listMemberPartTime = array(
+    array(
+        'code' => '004',
+        'full_name' => 'Nguyen Xuan P',
+        'age' => 22,
+        'gender' => 0,
+        'marital_status' => 0,
+        'total_work_time' => 0,
+        'salary' => 4000000,
+        'workdays' => 0,
+        'start_work_time' => '09:00:00',
+        'work_hour' => 4,
+        'has_lunch_break' => 0
+    ),
+    array(
+        'code' => '005',
+        'full_name' => 'Nguyen Ngoc T',
+        'age' => 21,
+        'gender' => 1,
+        'marital_status' => 0,
+        'total_work_time' => 0,
+        'salary' => 3500000,
+        'workdays' => 0,
+        'start_work_time' => '08:30:00',
+        'work_hour' => 3,
+        'has_lunch_break' => 1
+    )
+);
 
-function main()
-{
-    if (isset($_POST['submit'])) {
+$listWorkTime = array(
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-01 08:00:00',
+        'end_datetime' => '2019-04-01 19:00:00'
+    ),
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-02 08:10:00',
+        'end_datetime' => '2019-04-02 17:00:00'
+    ),
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-03 08:50:00',
+        'end_datetime' => '2019-04-03 18:00:00'
+    ),
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-04 08:20:00',
+        'end_datetime' => '2019-04-04 18:20:00'
+    ),
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-05 09:02:00',
+        'end_datetime' => '2019-04-05 17:40:00'
+    ),
+    array(
+        'member_code' => '001',
+        'start_datetime' => '2019-04-06 08:20:00',
+        'end_datetime' => '2019-04-06 18:30:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-01 08:00:00',
+        'end_datetime' => '2019-04-01 19:00:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-02 08:10:00',
+        'end_datetime' => '2019-04-02 17:00:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-03 08:50:00',
+        'end_datetime' => '2019-04-03 18:00:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-04 08:20:00',
+        'end_datetime' => '2019-04-04 18:20:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-05 09:02:00',
+        'end_datetime' => '2019-04-05 17:40:00'
+    ),
+    array(
+        'member_code' => '002',
+        'start_datetime' => '2019-04-06 08:20:00',
+        'end_datetime' => '2019-04-06 18:30:00'
+    ),
 
-        $a = $_POST['number_a'];
-        $b = $_POST['number_b'];
-        $c = $_POST['number_c'];
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-01 08:00:00',
+        'end_datetime' => '2019-04-01 19:00:00'
+    ),
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-02 08:10:00',
+        'end_datetime' => '2019-04-02 17:00:00'
+    ),
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-03 08:50:00',
+        'end_datetime' => '2019-04-03 18:00:00'
+    ),
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-04 08:20:00',
+        'end_datetime' => '2019-04-04 18:20:00'
+    ),
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-05 09:02:00',
+        'end_datetime' => '2019-04-05 17:40:00'
+    ),
+    array(
+        'member_code' => '003',
+        'start_datetime' => '2019-04-06 08:20:00',
+        'end_datetime' => '2019-04-06 18:30:00'
+    ),
 
-        //
-        $statusValidate = validate($a, $b, $c);
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-01 08:00:00',
+        'end_datetime' => '2019-04-01 12:00:00'
+    ),
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-02 08:10:00',
+        'end_datetime' => '2019-04-02 11:30:00'
+    ),
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-03 08:50:00',
+        'end_datetime' => '2019-04-03 11:40:00'
+    ),
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-04 08:20:00',
+        'end_datetime' => '2019-04-04 12:10:00'
+    ),
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-05 09:02:00',
+        'end_datetime' => '2019-04-05 11:45:00'
+    ),
+    array(
+        'member_code' => '004',
+        'start_datetime' => '2019-04-06 08:20:00',
+        'end_datetime' => '2019-04-06 12:30:00'
+    ),
 
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-01 08:00:00',
+        'end_datetime' => '2019-04-01 12:00:00'
+    ),
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-02 08:10:00',
+        'end_datetime' => '2019-04-02 11:30:00'
+    ),
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-03 08:50:00',
+        'end_datetime' => '2019-04-03 11:40:00'
+    ),
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-04 08:20:00',
+        'end_datetime' => '2019-04-04 12:10:00'
+    ),
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-05 09:02:00',
+        'end_datetime' => '2019-04-05 11:45:00'
+    ),
+    array(
+        'member_code' => '005',
+        'start_datetime' => '2019-04-06 08:20:00',
+        'end_datetime' => '2019-04-06 12:30:00'
+    ),
 
-        $deltaValidate = ptb($a, $b, $c);
-
-        if ($statusValidate['code'] !== 1) {
-            echo $statusValidate['message'];
-            return;
-        }
-        if ($deltaValidate['number'] === 0) {
-            echo $deltaValidate['message'];
-            return;
-        }
-        if ($deltaValidate['number'] === 1) {
-            echo $deltaValidate['message'] . '<br>' . 'x1 = ' . $deltaValidate['x1'] . '<br>' . 'x2 = ' . $deltaValidate['x2'];
-            return;
-        }
-        if ($deltaValidate['number'] === 2) {
-            echo $deltaValidate['message'] . '<br>' . 'x1 = ' . $deltaValidate['x1'] . '<br>' . 'x2 = ' . $deltaValidate['x2'];
-            return;
-        }
-
-    }
-}
-
-function ptb($a, $b, $c)
-{
-    $delta = ($b * $b) - (4 * $a * $c);
-    if ($delta < 0) {
-        return [
-            'number' => 0,
-            'message' => 'Phuong trinh vo nghiem',
-            'x1' => null,
-            'x2' => null
-        ];
-    }
-    $x = -$b / (2 * $a);
-    if ($delta === 0) {
-        return [
-            'number' => 1,
-            'message' => 'Phuong trinh co nghiem kep',
-            'x1' => $x,
-            'x2' => $x
-        ];
-    }
-    $x1 = (-$b - sqrt($delta)) / 2 * $a;
-    $x2 = (-$b + sqrt($delta)) / 2 * $a;
-    if ($delta > 0) {
-        return [
-            'number' => 2,
-            'message' => 'Phuong trinh co 2 nghiem',
-            'x1' => $x1,
-            'x2' => $x2
-        ];
-    }
-}
-
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<form action="" method="post">
-    <table>
-        <tr>
-            <td>
-                Nhap a:
-            </td>
-            <td>
-                <input type="text" name="number_a" value="">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Nhap b:
-            </td>
-            <td>
-                <input type="text" name="number_b" value="">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Nhap c:
-            </td>
-            <td>
-                <input type="text" name="number_c" value="">
-            </td>
-        </tr>
-        <input type="submit" value="Ket qua" name="submit">
-    </table>
-</form>
-<?php
-main();
-?>
-</body>
-</html>
+);
