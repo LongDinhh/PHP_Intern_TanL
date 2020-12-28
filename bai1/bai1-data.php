@@ -71,7 +71,7 @@ $listMemberPartTime = array(
         'workdays' => 0,
         'start_work_time' => '08:30:00',
         'work_hour' => 3,
-        'has_lunch_break' => 1,
+        'has_lunch_break' => 0,
         'luong' => ''
     ),
 
