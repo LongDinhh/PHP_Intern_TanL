@@ -13,36 +13,57 @@ class manager
     public $cong;
     public $end_datetime;
     public $chamcong;
-    public function setCode($code){
+
+    public function setCode($code)
+    {
         $this->code = $code;
     }
-    public function getCode(){
+
+    public function getCode()
+    {
         return $this->code;
     }
-    public function setName($name){
+
+    public function setName($name)
+    {
         $this->full_name = $name;
     }
-    public function getName(){
+
+    public function getName()
+    {
         return $this->full_name;
     }
-    public function setAge($age){
+
+    public function setAge($age)
+    {
         $this->age = $age;
     }
-    public function getAge(){
+
+    public function getAge()
+    {
         return $this->age;
     }
-    public function setGender($gender){
+
+    public function setGender($gender)
+    {
         $this->gender = $gender;
     }
-    public function getGender(){
+
+    public function getGender()
+    {
         return $this->gender;
     }
-    public function setLuong($luong){
+
+    public function setLuong($luong)
+    {
         $this->luong = $luong;
     }
-    public function getLuong(){
+
+    public function getLuong()
+    {
         return $this->luong;
     }
+
     public function datetime($column, $arrlistWorkTime)
     {
         $array = [];
@@ -97,20 +118,18 @@ class manager
     }
 }
 
-class Timekeeping extends manager
+class Timekeeping
 {
-    public function getHour($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime,$arr)
+    public function getHour($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime, $arr)
     {
         $array = [];
-        $sum = 0;
         $lenght = count($arrlistWorkTime);
-        for ($j=0;$j<count($arr);$j++) {
+        for ($j = 0; $j < count($arr); $j++) {
             for ($i = 0; $i < $lenght; $i++) {
-                if ($arr[$j]['code'] === $arrlistWorkTime[$i]['member_code']){
+                if ($arr[$j]['code'] === $arrlistWorkTime[$i]['member_code']) {
                     if ($arr[$j]['has_lunch_break'] !== 1) {
                         $sum = $arrEnd_datetime[$i] - $arrStar_datetime[$i];
-                    }
-                    else{
+                    } else {
                         $sum = $arrEnd_datetime[$i] - $arrStar_datetime[$i] - 1.5;
                     }
                     array_push($array, $sum);
@@ -128,7 +147,7 @@ class Timekeeping extends manager
             $c = ($c[0]) + ($c[1] / 60) + ($c[2] / 3600);
             $arr[$i]['start_work_time'] = $c;
             for ($j = 0; $j < count($arrlistWorkTime); $j++) {
-                if ($arr[$i]['has_lunch_break'] ===1){
+                if ($arr[$i]['has_lunch_break'] === 1) {
                     if ($arr[$i]['code'] === $arrlistWorkTime[$j]['member_code']) {
                         $arrlistWorkTime[$j]['cong'] = $getHour[$j];
                         if ($arrStar_datetime[$j] > $arr[$i]['start_work_time']) {
@@ -149,7 +168,7 @@ class Timekeeping extends manager
                     }
                 }
 
-                if ($arr[$i]['has_lunch_break'] ===0){
+                if ($arr[$i]['has_lunch_break'] === 0) {
                     if ($arr[$i]['code'] === $arrlistWorkTime[$j]['member_code']) {
                         $arrlistWorkTime[$j]['cong'] = $getHour[$j];
                         if ($arrStar_datetime[$j] > $arr[$i]['start_work_time']) {
@@ -174,6 +193,7 @@ class Timekeeping extends manager
         }
         return $arrlistWorkTime;
     }
+
     public function sum($inputNumber, $getDay, $arrlistWork_Cal, $arr)
     {
         $lenght = count($arr);
@@ -193,16 +213,16 @@ class Timekeeping extends manager
 
 }
 
-$arr = array_merge($listMemberFullTime,$listMemberPartTime);
-$manager  = new manager;
+$manager = new manager;
+$time = new Timekeeping;
+$arr = array_merge($listMemberFullTime, $listMemberPartTime);
 $arrlistWorkTime = $listWorkTime;
 $arrStar_datetime = $manager->start_datetime($arrlistWorkTime);
 $arrEnd_datetime = $manager->end_datetime($arrlistWorkTime);
-$time = new Timekeeping;
 $y = substr($arrlistWorkTime[0]['start_datetime'], 0, 4);
 $m = substr($arrlistWorkTime[0]['start_datetime'], 5, 2);
 $getDay = $manager->getDay($m, $y);
-$getHour = $time->getHour($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime,$arr);
+$getHour = $time->getHour($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime, $arr);
 $arrlistWork_Cal = $time->calculate($arrlistWorkTime, $arr, $getHour, $arrStar_datetime);
 echo '<pre>';
 print_r($time->calculate($arrlistWorkTime, $arr, $getHour, $arrStar_datetime));
@@ -216,8 +236,8 @@ echo '</pre>';
     <?php
     if (isset($_POST['submit'])) {
         $inputNumber = $_POST['inputNumber'];
-         $arrs = $time->sum($inputNumber, $getDay, $arrlistWork_Cal, $arr);
-            foreach ($arrs as $arr)
+        $arrs = $time->sum($inputNumber, $getDay, $arrlistWork_Cal, $arr);
+        foreach ($arrs as $arr)
             if ($arr['code'] === $inputNumber) {
                 $manager->setName($arr['full_name']);
                 $manager->setCode($arr['code']);
