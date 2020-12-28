@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76a90b68-1d50-45d2-9a8d-af94e2603766" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="76a90b68-1d50-45d2-9a8d-af94e2603766" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bai1/bai1b.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="999">
-              <caret line="223" column="35" lean-forward="true" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
+            <state relative-caret-position="189">
+              <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
               <folding>
                 <element signature="n#manager#0;n#!!top" />
                 <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
@@ -190,15 +188,15 @@
       <workItem from="1608774671878" duration="24899000" />
       <workItem from="1608859515270" duration="28860000" />
       <workItem from="1609076166116" duration="506000" />
-      <workItem from="1609119232253" duration="25499000" />
+      <workItem from="1609119232253" duration="25780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134995000" />
+    <option name="totallyTimeSpent" value="135276000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -324,8 +322,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bai1/bai1b.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="223" column="35" lean-forward="true" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
+        <state relative-caret-position="189">
+          <caret line="190" lean-forward="true" selection-start-line="190" selection-end-line="190" />
           <folding>
             <element signature="n#manager#0;n#!!top" />
             <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
