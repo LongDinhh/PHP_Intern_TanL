@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76a90b68-1d50-45d2-9a8d-af94e2603766" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bai1/bai1-data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai1/bai1.php" beforeDir="false" afterPath="$PROJECT_DIR$/bai1/bai1.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,36 +14,38 @@
     <session id="-548751793">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="1" />
-          <entry key="php" value="54" />
+          <entry key="php" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="54" />
+          <entry key="PHP" value="68" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="6487" />
+          <entry key="php" value="16236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="6487" />
+          <entry key="PHP" value="16236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -57,11 +57,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bai1/bai1.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bai1/bai1a.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state relative-caret-position="3726">
+              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+              <folding>
+                <element signature="n#manager#0;n#!!top" />
+                <element signature="n#datetime#0;n#manager_datetime#0;n#!!top" />
+                <element signature="n#start_datetime#0;n#manager_datetime#0;n#!!top" />
+                <element signature="n#end_datetime#0;n#manager_datetime#0;n#!!top" />
+                <element signature="n#getDay#0;n#manager_datetime#0;n#!!top" />
+                <element signature="n#sum#0;n#TimekeepingFullTime#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bai1/bai1b.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="999">
+              <caret line="223" column="35" lean-forward="true" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
+              <folding>
+                <element signature="n#manager#0;n#!!top" />
+                <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
+                <element signature="n#getDay#0;n#manager#0;n#!!top" />
+                <element signature="n#getHour#0;n#Timekeeping#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bai1/bai1-data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="324">
+              <caret line="60" column="21" lean-forward="true" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -86,8 +109,13 @@
         <option value="$PROJECT_DIR$/bai3/bai3.php" />
         <option value="$PROJECT_DIR$/bai4/bai4_a.php" />
         <option value="$PROJECT_DIR$/bai5/bai5.php" />
-        <option value="$PROJECT_DIR$/bai1/bai1-data.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1_.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1__.php" />
         <option value="$PROJECT_DIR$/bai1/bai1.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1a.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1-data.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1c.php" />
+        <option value="$PROJECT_DIR$/bai1/bai1b.php" />
       </list>
     </option>
   </component>
@@ -107,6 +135,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,7 +152,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -159,19 +187,22 @@
       <workItem from="1608600665234" duration="26016000" />
       <workItem from="1608686824919" duration="9824000" />
       <workItem from="1608732995723" duration="610000" />
-      <workItem from="1608774671878" duration="2777000" />
+      <workItem from="1608774671878" duration="24899000" />
+      <workItem from="1608859515270" duration="28860000" />
+      <workItem from="1609076166116" duration="506000" />
+      <workItem from="1609119232253" duration="25499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58008000" />
+    <option name="totallyTimeSpent" value="134995000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.14674735" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.15355521" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="1" />
@@ -198,16 +229,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/bai1/bai1.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
@@ -215,30 +236,102 @@
     <entry file="file://$PROJECT_DIR$/bai4/bai4.php" />
     <entry file="file://$PROJECT_DIR$/bai4/bai4_b.php" />
     <entry file="file://$PROJECT_DIR$/bai3/bai3.php" />
-    <entry file="file://$PROJECT_DIR$/bai4/bai4_a.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bai5/bai5.php">
+    <entry file="file://$PROJECT_DIR$/bai4/bai4_a.php" />
+    <entry file="file://$PROJECT_DIR$/bai5/bai5.php" />
+    <entry file="file://$PROJECT_DIR$/bai1/bai1__.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
+        <state relative-caret-position="22">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="90" selection-end-column="5" />
           <folding>
-            <element signature="n#validate#0;n#!!top" />
+            <element signature="n#datetime#0;n#manager#0;n#!!top" />
+            <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
+            <element signature="n#end_datetime#0;n#manager#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager#0;n#!!top" />
+            <element signature="e#2377#2420#0#PHP" />
+            <element signature="n#getHourFull#0;n#TimekeepingFullTime#0;n#!!top" />
+            <element signature="n#calculate#0;n#TimekeepingFullTime#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai1/bai1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="n#manager_datetime#0;n#!!top" />
+            <element signature="n#datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#start_datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#end_datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#TimekeepingFullTime#0;n#!!top" />
+            <element signature="n#getHourFull#0;n#TimekeepingFullTime#0;n#!!top" />
+            <element signature="n#TimekeepingPartTime#0;n#!!top" />
+            <element signature="n#getHourPart#0;n#TimekeepingPartTime#0;n#!!top" />
+            <element signature="n#calculate#0;n#TimekeepingPartTime#0;n#!!top" />
+            <element signature="n#sum#0;n#TimekeepingPartTime#0;n#!!top" />
+            <element signature="e#12936#12941#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai1/bai1_.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5634">
+          <caret line="360" column="42" lean-forward="true" selection-start-line="360" selection-start-column="42" selection-end-line="360" selection-end-column="42" />
+          <folding>
+            <element signature="n#end_datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#TimekeepingFullTime#0;n#!!top" />
+            <element signature="n#getHourFull#0;n#TimekeepingFullTime#0;n#!!top" />
+            <element signature="n#sum#0;n#TimekeepingFullTime#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai1/bai1c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="193" column="20" lean-forward="true" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="20" />
+          <folding>
+            <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bai1/bai1a.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3726">
+          <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+          <folding>
+            <element signature="n#manager#0;n#!!top" />
+            <element signature="n#datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#start_datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#end_datetime#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager_datetime#0;n#!!top" />
+            <element signature="n#sum#0;n#TimekeepingFullTime#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bai1/bai1-data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="324">
+          <caret line="60" column="21" lean-forward="true" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bai1/bai1.php">
+    <entry file="file://$PROJECT_DIR$/bai1/bai1b.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="26" column="30" lean-forward="true" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="999">
+          <caret line="223" column="35" lean-forward="true" selection-start-line="223" selection-start-column="35" selection-end-line="223" selection-end-column="35" />
+          <folding>
+            <element signature="n#manager#0;n#!!top" />
+            <element signature="n#start_datetime#0;n#manager#0;n#!!top" />
+            <element signature="n#getDay#0;n#manager#0;n#!!top" />
+            <element signature="n#getHour#0;n#Timekeeping#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
