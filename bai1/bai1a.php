@@ -1,8 +1,48 @@
 <?php
 require_once 'bai1-data.php';
 
-class manager_datetime extends listMember
+class manager
 {
+    public $code;
+    public $full_name;
+    public $age;
+    public $gender;
+    public $start_work_time;
+    public $luong;
+    public $start_datetime;
+    public $cong;
+    public $end_datetime;
+    public $chamcong;
+    public function setCode($code){
+        $this->code = $code;
+    }
+    public function getCode(){
+        return $this->code;
+    }
+    public function setName($name){
+        $this->full_name = $name;
+    }
+    public function getName(){
+        return $this->full_name;
+    }
+    public function setAge($age){
+        $this->age = $age;
+    }
+    public function getAge(){
+        return $this->age;
+    }
+    public function setGender($gender){
+        $this->gender = $gender;
+    }
+    public function getGender(){
+        return $this->gender;
+    }
+    public function setLuong($luong){
+        $this->luong = $luong;
+    }
+    public function getLuong(){
+        return $this->luong;
+    }
     public function datetime($column, $arrlistWorkTime)
     {
         $array = [];
@@ -57,7 +97,7 @@ class manager_datetime extends listMember
     }
 }
 
-class TimekeepingFullTime extends manager_datetime
+class TimekeepingFullTime extends manager
 {
     public function getHourFull($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime)
     {
@@ -122,7 +162,7 @@ class TimekeepingFullTime extends manager_datetime
 
 }
 
-class TimekeepingPartTime extends manager_datetime
+class TimekeepingPartTime extends manager
 {
     public function getHourPart($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime)
     {
@@ -187,185 +227,86 @@ class TimekeepingPartTime extends manager_datetime
 
 }
 
-
 $parttime = new TimekeepingPartTime;
+$manager = new manager;
 $fulltime = new TimekeepingFullTime;
 
 ?>
 
 <form action="" method="post">
-    <table border="" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Mã</th>
-            <th>Tên</th>
-            <th>Tuổi</th>
-            <th>Gioi tinh</th>
-            <th>tình trạng hôn nhân</th>
-            <th>thời gian làm việc</th>
-            <th>lương</th>
-            <th>số ngày công</th>
-            <th>thời gian đăng ký đi làm</th>
-            <th>Thời gian đăng kí làm việc</th>
-            <th>has_lunch_break</th>
-            <th>nghỉ trưa</th>
-        </tr>
-        <?php
-        $MembersFullTime = $fulltime->listMemberFullTime();
-        foreach ($MembersFullTime as $MemberFullTime):?>
-            <tr>
-                <td><?php echo $MemberFullTime['code']; ?></td>
-                <td><?php echo $MemberFullTime['full_name']; ?></td>
-                <td><?php echo $MemberFullTime['age']; ?></td>
-
-                <td><?php echo $MemberFullTime['gender']; ?></td>
-
-                <td><?php echo $MemberFullTime['marital_status']; ?></td>
-
-
-                <td><?php echo $MemberFullTime['total_work_time']; ?></td>
-
-                <td><?php echo $MemberFullTime['salary']; ?></td>
-                <td><?php echo $MemberFullTime['workdays']; ?></td>
-                <td><?php echo $MemberFullTime['start_work_time']; ?></td>
-                <td><?php echo $MemberFullTime['work_hour']; ?></td>
-                <td><?php echo $MemberFullTime['has_lunch_break']; ?></td>
-                <td><?php echo 1.5; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    <table border="" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Mã</th>
-            <th>Ngày - giờ bắt đầu</th>
-            <th>Ngày - giờ kết thúc</th>
-            <th>Thời gian làm việc trong 1 ngày</th>
-            <th>Chấm công</th>
-        </tr>
-        <?php
-        $arrlistWorkTime = $fulltime->listWorkTime();
-        $arrStar_datetime = $fulltime->start_datetime($arrlistWorkTime);
-        $arrEnd_datetime = $fulltime->end_datetime($arrlistWorkTime);
-        $arrlistMemberFullTime = $fulltime->listMemberFullTime();
-        $getHourFull = $fulltime->getHourFull($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime);
-        $listWork = $fulltime->calculate($arrlistWorkTime, $arrlistMemberFullTime, $getHourFull, $arrStar_datetime);
-        foreach ($listWork as $MemberFullTime):?>
-            <tr>
-                <?php if (($MemberFullTime['cong']) > 0): ?>
-                    <td><?php echo $MemberFullTime['member_code']; ?></td>
-                    <td><?php echo $MemberFullTime['start_datetime']; ?></td>
-                    <td><?php echo $MemberFullTime['end_datetime']; ?></td>
-                    <td><?php echo $MemberFullTime['cong']; ?></td>
-                    <td><?php echo $MemberFullTime['chamcong']; ?></td>
-                <?php endif; ?>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    <table border="" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Mã</th>
-            <th>Tên</th>
-            <th>Tuổi</th>
-            <th>Gioi tinh</th>
-            <th>tình trạng hôn nhân</th>
-            <th>thời gian làm việc</th>
-            <th>lương</th>
-            <th>số ngày công</th>
-            <th>thời gian đăng ký đi làm</th>
-            <th>Thời gian đăng kí làm việc</th>
-            <th>has_lunch_break</th>
-            <th>nghỉ trưa</th>
-        </tr>
-        <?php
-        $MembersPartTime = $parttime->listMemberPartTime();
-        foreach ($MembersPartTime as $MemberPartTime):?>
-            <tr>
-                <td><?php echo $MemberPartTime['code']; ?></td>
-                <td><?php echo $MemberPartTime['full_name']; ?></td>
-                <td><?php echo $MemberPartTime['age']; ?></td>
-
-                <td><?php echo $MemberPartTime['gender']; ?></td>
-
-                <td><?php echo $MemberPartTime['marital_status']; ?></td>
-
-
-                <td><?php echo $MemberPartTime['total_work_time']; ?></td>
-
-                <td><?php echo $MemberPartTime['salary']; ?></td>
-                <td><?php echo $MemberPartTime['workdays']; ?></td>
-                <td><?php echo $MemberPartTime['start_work_time']; ?></td>
-                <td><?php echo $MemberPartTime['work_hour']; ?></td>
-                <td><?php echo $MemberPartTime['has_lunch_break']; ?></td>
-                <td><?php echo 0; ?></td>
-            </tr>
-        <?php endforeach; ?>
-    </table>
-    <table border="" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Mã</th>
-            <th>Ngày - giờ bắt đầu</th>
-            <th>Ngày - giờ kết thúc</th>
-            <th>Thời gian làm việc trong 1 ngày</th>
-            <th>Chấm công</th>
-        </tr>
-        <?php
-        $arrlistWorkTime = $parttime->listWorkTime();
-        $arrStar_datetime = $parttime->start_datetime($arrlistWorkTime);
-        $arrEnd_datetime = $parttime->end_datetime($arrlistWorkTime);
-        $arrlistMemberPartTime = $parttime->listMemberPartTime();
-        $getHourPart = $parttime->getHourPart($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime);
-        $listWork = $parttime->calculate($arrlistWorkTime, $arrlistMemberPartTime, $getHourPart, $arrStar_datetime);
-        foreach ($listWork as $MemberPartTime):?>
-            <tr>
-                <?php if (($MemberPartTime['cong']) > 0): ?>
-                    <td><?php echo $MemberPartTime['member_code']; ?></td>
-                    <td><?php echo $MemberPartTime['start_datetime']; ?></td>
-                    <td><?php echo $MemberPartTime['end_datetime']; ?></td>
-                    <td><?php echo $MemberPartTime['cong']; ?></td>
-                    <td><?php echo $MemberPartTime['chamcong']; ?></td>
-                <?php endif; ?>
-            </tr>
-        <?php endforeach; ?>
-    </table>
     <input type="text" name="inputNumber" value="">
     <input type="submit" name="submit" value="Tìm kiếm">
     <?php
     if (isset($_POST['submit'])) {
         $inputNumber = $_POST['inputNumber'];
+        $arrlistWorkTime = $listWorkTime;
+        $arrStar_datetime = $manager->start_datetime($arrlistWorkTime);
+        $arrEnd_datetime = $manager->end_datetime($arrlistWorkTime);
         $y = substr($arrlistWorkTime[0]['start_datetime'], 0, 4);
         $m = substr($arrlistWorkTime[0]['start_datetime'], 5, 2);
-        $getDay = $fulltime->getDay($m, $y);
+        $getDay = $manager->getDay($m, $y);
+
+        // FullTime
+
+        $arrlistMemberFullTime = $listMemberFullTime;
+        $getHourFull = $fulltime->getHourFull($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime);
         $arrlistWork_Cal = $fulltime->calculate($arrlistWorkTime, $arrlistMemberFullTime, $getHourFull, $arrStar_datetime);
         $arrays = $fulltime->sum($inputNumber, $getDay, $arrlistWork_Cal, $arrlistMemberFullTime);
-        foreach ($arrays as $array) {
-            if ($array['code'] === $inputNumber) {
-                echo '<br>' . 'Mã: ' . $array['code'] . '<br>';
-                echo "Họ tên: " . $array['full_name'] . '<br>';
-                echo "Tuổi: " . $array['age'] . '<br>';
-                if ($array['gender'] === 0) {
-                    echo "Gioi tinh: Nam" . '<br>';
+        $lenght = count($arrays);
+            for ($i = 0; $i < $lenght; $i++) {
+
+                if ($arrays[$i]['code'] === $inputNumber) {
+                    $manager->setName($arrays[$i]['full_name']);
+                    $manager->setCode($arrays[$i]['code']);
+                    $manager->setAge($arrays[$i]['age']);
+                    $manager->setGender($arrays[$i]['gender']);
+                    $manager->setLuong($arrays[$i]['luong']);
+                    echo '<br>' . "Mã: " . $manager->getCode() . '<br>';
+                    echo "Họ tên: " . $manager->getName() . '<br>';
+                    echo "Tuổi: " . $manager->getAge() . '<br>';
+                    if ($manager->getGender() === 0) {
+                        echo "Gioi tinh: Nam" . '<br>';
+                    }
+                    if ($manager->getGender() === 1) {
+                        echo "Gioi tinh: Nữ" . '<br>';
+
+                    }
+                    echo "Lương: " . $manager->getLuong() . '<br>';
                 }
-                if ($array['gender'] === 1) {
-                    echo "Gioi tinh: Nữ" . '<br>';
-                }
-                echo "Lương: " . $array['luong'] . '<br>';
             }
-        }
+
+            //Parttime
+
+        $arrlistMemberPartTime = $listMemberPartTime;
+        $getHourPart = $parttime->getHourPart($arrlistWorkTime, $arrStar_datetime, $arrEnd_datetime);
         $arrlistWork_Cal = $parttime->calculate($arrlistWorkTime, $arrlistMemberPartTime, $getHourPart, $arrStar_datetime);
         $arrays = $parttime->sum($inputNumber, $getDay, $arrlistWork_Cal, $arrlistMemberPartTime);
-        foreach ($arrays as $array) {
-            if ($array['code'] === $inputNumber) {
-                echo '<br>' . 'Mã: ' . $array['code'] . '<br>';
-                echo "Họ tên: " . $array['full_name'] . '<br>';
-                echo "Tuổi: " . $array['age'] . '<br>';
-                if ($array['gender'] === 0) {
+        $lenght = count($arrays);
+        for ($i = 0; $i < $lenght; $i++) {
+            if ($arrays[$i]['code'] === $inputNumber) {
+                $manager->setName($arrays[$i]['full_name']);
+                $manager->setCode($arrays[$i]['code']);
+                $manager->setAge($arrays[$i]['age']);
+                $manager->setGender($arrays[$i]['gender']);
+                $manager->setLuong($arrays[$i]['luong']);
+                echo '<br>' . "Mã: " . $manager->getCode() . '<br>';
+                echo "Họ tên: " . $manager->getName() . '<br>';
+                echo "Tuổi: " . $manager->getAge() . '<br>';
+                if ($manager->getGender() === 0) {
                     echo "Gioi tinh: Nam" . '<br>';
                 }
-                if ($array['gender'] === 1) {
+                if ($manager->getGender() === 1) {
                     echo "Gioi tinh: Nữ" . '<br>';
+
                 }
-                echo "Lương: " . $array['luong'] . '<br>';
+                echo "Lương: " . $manager->getLuong() . '<br>';
             }
         }
+//        $lenght  =count($arrlistWork_Cal);
+//        for ($j=0;$j<$lenght;$j++){
+//
+//        }
+
     }
     ?>
 </form>
